@@ -1,0 +1,34 @@
+{
+  "name": "agentswap",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Autonomous ERC-8004 liquidity agent for Uniswap V3. Hackathon: lablab.ai AI Trading Agents.",
+  "dependencies": {
+    "hardhat": "^2.22.0",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "ethers": "^6.9.0",
+    "@uniswap/v3-sdk": "^3.10.0",
+    "@chainlink/contracts": "^0.8.0",
+    "graphql-request": "^6.1.0",
+    "graphql": "^16.8.0",
+    "dotenv": "^16.4.0",
+    "express": "^4.18.0",
+    "cors": "^2.8.5",
+    "better-sqlite3": "^9.4.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "@openzeppelin/contracts": "^5.0.0"
+  },
+  "scripts": {
+    "compile":        "hardhat compile",
+    "test":           "hardhat test",
+    "deploy":         "hardhat run scripts/deploy.js --network sepolia",
+    "deploy:local":   "hardhat run scripts/deploy.js --network hardhat",
+    "start:worker":   "node worker/index.js",
+    "start:api":      "node backend/server.js",
+    "start:frontend": "cd frontend && npx vite",
+    "dev":            "concurrently \"npm:start:worker\" \"npm:start:api\"",
+    "verify":         "hardhat verify --network sepolia"
+  }
+}
